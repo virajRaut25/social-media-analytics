@@ -12,113 +12,316 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='images/twitter.png')}}"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&family=Space+Grotesk&display=swap");
-      #intro {
-        background-color: #088eea;
-        background-image: linear-gradient(0deg, #088eea 0%, #2af598 100%);
-        height: 100vh;
-        width: 100vw;
-        max-width: 100%;
-        font-family: "Space Grotesk", sans-serif;
-      }
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&family=Space+Grotesk&display=swap");
 
-      .title {
-        position: relative;
-        top: 1rem;
-      }
+            /* Global CSS */
 
-      .text-gradient,
-      .nav-link:hover,
-      .active {
-        background: linear-gradient(to right, #088eea 0%, #2af598 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+            .secbody{
+              font-family: "Roboto", sans-serif;
+              position: absolute;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              width: 100vw;
+              max-width: 100%;
+            }
 
-      #about {
-        font-family: 'Roboto', sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        max-width: 100%;
-        background-color: #0093e9;
-        background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
-      }
+            .heading {
+              position: absolute;
+              top: 5rem;
+              border-bottom: 2px solid black;
+            }
 
-      .main-ab {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 1rem;
-      }
+            /* Intro Section */
 
-      .heading {
-        border-bottom: 2px solid black;
-      }
+            :root{
+              --left_perct: {{left_perct}}%;
+              --right_perct: {{right_perct}}%;
+            }
 
-      .first-letter {
-        font-size: 1.5rem;
-      }
+            #intro {
+              background-color: #088eea;
+              background-image: linear-gradient(0deg, #088eea 0%, #2af598 100%);
+              height: 100vh;
+              width: 100vw;
+              max-width: 100%;
+              font-family: "Space Grotesk", sans-serif;
+            }
 
-      @media screen and (max-width: 913px) {
-        .main-ab {
-          font-size: 1.3rem;
-          flex-wrap: wrap;
-        }
-        #ab-wordcloud-img > img {
-          height: 20rem;
-        }
-      }
+            .title {
+              position: relative;
+              top: 1rem;
+            }
 
-      @media screen and (max-width: 820px) {
-        .heading{
-          margin-top: 2rem;
-        }
-        .main-ab {
-          font-size: 1.1rem;
-        }
-        #ab-wordcloud-img > img {
-          height: 15rem;
-        }
-      }
+            .text-gradient,
+            .nav-link:hover,
+            .active {
+              background: linear-gradient(to right, #088eea 0%, #2af598 100%);
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
 
-      @media screen and (max-width: 600px) {
-        .main-ab {
-          font-size: 1rem;
-        }
-        .heading {
-          margin-top: 3rem;
-        }
-        #ab-wordcloud-img > img {
-          height: 13rem;
-        }
-      }
+            /* About Section */
 
-      @media screen and (max-width: 400px) {
-        #ab-wordcloud-img > img {
-          height: 10rem;
-        }
-        .first-letter {
-          font-size: 1.2rem;
-        }
-        .main-ab {
-          font-size: 0.9rem;
-        }
-      }
+            #about {
+              top: 100vh;
+              flex-direction: column;
+              background-color: #0093e9;
+              background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+            }
 
-      @media screen and (max-width: 300px) {
-        .main-ab {
-          font-size: 0.7rem;
-        }
-        #ab-wordcloud-img > img {
-          height: 8.5rem;
-        }
-      }
+            .main-ab {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              /* padding-top: 1rem; */
+              margin-top: 7rem;
+            }
+
+            .first-letter {
+              font-size: 1.5rem;
+            }
+
+            /* Classify Section  */
+
+            .classify {
+              top: 200vh;
+              background: linear-gradient(
+                45deg,
+                rgba(107, 182, 227, 1) 0%,
+                rgba(132, 249, 195, 1) 50%,
+                rgba(107, 182, 227, 1) 50%,
+                rgba(132, 249, 195, 1) 100%
+              );
+            }
+
+            .progress-stacked {
+              display: flex;
+              width: 60vw;
+              border-radius: 0px;
+              transform: skewX(45deg);
+            }
+            .progress {
+              border-radius: 0;
+              display: inline-block;
+              background-color: rgba(255, 255, 255, 0.3);
+              height: 30px;
+            }
+            .progress-bar {
+              width: 0%;
+              color: black;
+              font-weight: 500;
+              font-size: 1.1rem;
+              height: 30px;
+            }
+            .l-wing {
+              position: absolute;
+              bottom: 9rem;
+              left: 1rem;
+              width: 20rem;
+            }
+            .r-wing {
+              position: absolute;
+              top: 9rem;
+              right: 1rem;
+              width: 20rem;
+              text-align: right;
+            }
+            .progress-bar-l {
+              background: linear-gradient(
+                45deg,
+                rgba(117, 221, 172, 0.7792366946778712) 0%,
+                rgba(118, 194, 238, 0.768032212885154) 10%
+              );
+              animation: left-progress 1s ease-in 0s forwards;
+            }
+            .progress-bar-r {
+              background: linear-gradient(
+                45deg,
+                rgba(107, 182, 227, 0.7036064425770308) 0%,
+                rgba(132, 249, 195, 0.7792366946778712) 38%
+              );
+              animation: right-progress 1s ease-in 1s forwards;
+            }
+
+            @keyframes left-progress {
+              from {
+                width: 0;
+              }
+              to {
+                width: var(--left_perct);
+              }
+            }
+
+            @keyframes right-progress {
+              from {
+                width: 0;
+              }
+              to {
+                width: var(--right_perct);
+              }
+            }
+
+            /* Trends Section */
+
+            .trends{
+              text-align: center;
+              top: 300vh;
+              background: linear-gradient(
+                90deg,
+                rgba(153, 251, 206, 1) 0%,
+                rgba(160, 210, 233, 1) 100%
+              );
+            }
+
+            .frequency, .h_clust{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin-top: 7rem;
+            }
+
+            .freq_img{
+              background-image: url(../static/images/frequency_c.png);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+              height: 23rem;
+              width: 61rem;
+            }
+
+            /* Cluster Section */
+
+            .cluster{
+              text-align: center;
+              top: 400vh;
+              background: linear-gradient(
+                90deg,
+                rgba(160, 210, 233, 1) 0%,
+                rgba(153, 251, 206, 1) 100%
+              );
+            }
+
+            .dendrogram{
+              background-image: url(../static/images/ward_clusters_c.png);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+              height: 23rem;
+              width: 61rem;
+            }
+
+            /* Media Queries for Responsive Design */
+
+            @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+              html {
+                transform: rotate(-90deg);
+                transform-origin: left top;
+                width: 100vh;
+                overflow-x: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+              }
+            }
+
+            @media screen and (max-width: 1020px) {
+              .freq_img, .dendrogram{
+                height: 21rem;
+                width: 56rem;
+              }
+            }
+
+            @media screen and (max-width: 913px) {
+              .freq_img, .dendrogram{
+                height: 18rem;
+                width: 50rem;
+              }
+              .main-ab {
+                font-size: 1.3rem;
+                flex-wrap: wrap;
+              }
+              #ab-wordcloud-img > img {
+                height: 20rem;
+              }
+            }
+
+            @media screen and (max-width: 820px) {
+              .freq_img{
+                background-image: url(../static/images/frequency.png);
+                height: 40rem;
+                width: 30rem;
+              }
+
+              .dendrogram{
+                background-image: url(../static/images/ward_clusters.png);
+                height: 40rem;
+                width: 30rem;
+              }
+              .main-ab {
+                font-size: 1.1rem;
+              }
+              #ab-wordcloud-img > img {
+                height: 15rem;
+              }
+              .l-wing{
+                width: 16rem;
+              }
+              .r-wing{
+                width: 16rem;
+              }
+            }
+
+            @media screen and (max-width: 600px) {
+              .freq_img, .dendrogram{
+                width: 25rem;
+                height: 35rem;
+              }
+              .main-ab {
+                font-size: 1rem;
+              }
+              #ab-wordcloud-img > img {
+                height: 13rem;
+              }
+              .progress-stacked {
+                width: 90vw;
+              }
+            }
+
+            @media screen and (max-width: 420px) {
+              .freq_img, .dendrogram{
+                width: 20rem;
+                height: 28rem;
+              }
+              #ab-wordcloud-img > img {
+                height: 10rem;
+              }
+              .first-letter {
+                font-size: 1.2rem;
+              }
+              .main-ab {
+                font-size: 0.8rem;
+              }
+            }
+
+            @media screen and (max-width: 300px) {
+              .freq_img, .dendrogram{
+                width: 15rem;
+                height: 22rem;
+              }
+              .main-ab {
+                font-size: 0.7rem;
+              }
+              #ab-wordcloud-img > img {
+                height: 8.5rem;
+              }
+            }
     </style>
   </head>
   <body>
@@ -151,10 +354,16 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5" href="#">Classify</a>
+              <a class="nav-link fs-5" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="#classify">Classify</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="#trends">Trends</a>
             </li>
             <li>
-              <a href="#" class="nav-link fs-5">Cluster</a>
+              <a href="#cluster" class="nav-link fs-5">Cluster</a>
             </li>
           </ul>
         </div>
@@ -169,10 +378,8 @@
         Learning</span
       >
     </section>
-    <section id="about">
-      <div class="text-center heading">
-        <span class="fs-1">About</span>
-      </div>
+    <section id="about" class="secbody">
+      <span class="heading fs-1">About</span>
       <div class="main-ab">
         <aside id="ab-wordcloud-img" class="px-2">
           <img
@@ -199,6 +406,62 @@
         </aside>
       </div>
     </section>
+    <section class="classify secbody" id="classify">
+      <span class="heading fs-1">Classify</span>
+      <div class="l-wing">
+        <h3>Left Wing</h3>
+        Left-wing politics supports social equality often in opposition to
+        social hierarchy or any other form of class division.
+      </div>
+      <div class="r-wing">
+        <h3>Right Wing</h3>
+        Right-Wing politics is centered around beliefs that certain social
+        orders and hierarchies are inevitable and natural
+      </div>
+      <div class="progress-stacked">
+        <div
+          class="progress"
+          role="progressbar"
+          aria-label="Segment one"
+          aria-valuenow="15"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style="width: 50%"
+        >
+          <div class="progress-bar progress-bar-l">
+            {{left_perct}}%
+          </div>
+        </div>
+        <div
+          class="progress"
+          role="progressbar"
+          aria-label="Segment two"
+          aria-valuenow="30"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style="width: 50%"
+        >
+          <div class="progress-bar progress-bar-r">
+            {{right_perct}}%
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="trends secbody" id="trends">
+      <span class="heading fs-1">Trends</span>
+      <div class="frequency">
+        <div class="freq_img"></div>
+        <p>Finding most frequent words to get trending topics.</p>
+      </div>
+    </section>
+    <section class="cluster secbody" id="cluster">
+      <span class="heading fs-1">Cluster</span>
+      <div class="h_clust">
+        <div class="dendrogram"></div>
+        <p>Relation between topics using hierarchical clustering.</p>
+      </div>
+    </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
