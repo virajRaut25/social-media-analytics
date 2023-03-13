@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block body %}
+<section class="l-r-predict">
+  <span class="heading fs-2">Is it Left/Right Wing🤔</span>
+  <form class="gettweet" action="{{url_for('predict')}}" method="post">
+    <label for="getTweet">Write a tweet</label>
+    <textarea
+      name="wttweet"
+      id="wttweet"
+      cols="35"
+      rows="6"
+      placeholder="What's Happening?"
+      required
+    ></textarea>
+    <button class="button" type="submit">Predict</button>
+  </form>
+  {% if classified is not none %}
+  <div class="lr-res">{{classified}}</div>
+  {% endif %}
+</section>
+{% endblock body %}

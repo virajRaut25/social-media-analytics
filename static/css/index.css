@@ -1,0 +1,617 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&family=Space+Grotesk&display=swap");
+
+/* Global CSS */
+
+.secbody{
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.heading {
+  position: absolute;
+  top: 5rem;
+  border-bottom: 2px solid black;
+}
+
+/* Landing Page  */
+
+/* Intro Section */
+
+#intro {
+  background-color: #088eea;
+  background-image: linear-gradient(0deg, #088eea 0%, #2af598 100%);
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.title {
+  position: relative;
+  top: 1rem;
+}
+
+.navbar{
+  transition: 0.5s;
+  opacity: 0.9;
+}
+
+.navbar:hover{
+  opacity: 1;
+}
+
+.text-gradient,
+.nav-link:hover,
+.active{
+  background: linear-gradient(to right, #088eea 0%, #2af598 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* About Section */
+
+#about {
+  top: 100vh;
+  flex-direction: column;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+
+.main-ab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7rem;
+}
+
+#abstract{
+  width: 55vw;
+}
+
+.first-letter {
+  font-size: 1.5rem;
+}
+
+/* Classify Section  */
+
+.classify {
+  top: 200vh;
+  background: linear-gradient(
+    45deg,
+    rgba(107, 182, 227, 1) 0%,
+    rgba(132, 249, 195, 1) 50%,
+    rgba(107, 182, 227, 1) 50%,
+    rgba(132, 249, 195, 1) 100%
+  );
+}
+
+.progress-stacked {
+  display: flex;
+  width: 60vw;
+  border-radius: 0px;
+  transform: skewX(45deg);
+}
+.progress {
+  border-radius: 0;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 30px;
+}
+.progress-bar {
+  width: 0%;
+  color: black;
+  font-weight: 500;
+  font-size: 1.1rem;
+  height: 30px;
+}
+.l-wing {
+  position: absolute;
+  bottom: 9rem;
+  left: 1rem;
+  width: 20rem;
+}
+.r-wing {
+  position: absolute;
+  top: 9rem;
+  right: 1rem;
+  width: 20rem;
+  text-align: right;
+}
+.progress-bar-l {
+  background: linear-gradient(
+    45deg,
+    rgba(117, 221, 172, 0.7792366946778712) 0%,
+    rgba(118, 194, 238, 0.768032212885154) 10%
+  );
+  animation: left-progress 1s ease-in 0s forwards;
+}
+.progress-bar-r {
+  background: linear-gradient(
+    45deg,
+    rgba(107, 182, 227, 0.7036064425770308) 0%,
+    rgba(132, 249, 195, 0.7792366946778712) 38%
+  );
+  animation: right-progress 1s ease-in 1s forwards;
+}
+
+@keyframes left-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--left_perct);
+  }
+}
+
+@keyframes right-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--right_perct);
+  }
+}
+
+/* Trends Section */
+
+.trends{
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(153, 251, 206, 1) 0%,
+    rgba(160, 210, 233, 1) 100%
+  );
+}
+
+#trends{
+  top: 300vh;
+}
+
+.frequency, .h_clust{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7rem;
+}
+
+.home_freq_img{
+  background-image: url(../images/frequency_c.png);
+}
+
+.freq_img{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 23rem;
+  width: 61rem;
+}
+
+/* Cluster Section */
+
+.cluster{
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(160, 210, 233, 1) 0%,
+    rgba(153, 251, 206, 1) 100%
+  );
+}
+
+#cluster{
+  top: 400vh;
+}
+
+.home_dendrogram{
+  background-image: url(../images/ward_clusters_c.png);
+}
+
+.dendrogram{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 23rem;
+  width: 61rem;
+}
+
+/* Predict Page */
+
+/* Left or Right Wing Prediction */
+
+.l-r-predict {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  background: linear-gradient(
+    225deg,
+    rgba(176, 255, 216, 1) 0%,
+    rgba(150, 196, 251, 1) 100%
+  );
+}
+
+.heading {
+  position: absolute;
+  top: 5rem;
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.gettweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 2rem 6rem;
+  padding-top: 1.8rem;
+  background: linear-gradient(
+    45deg,
+    rgba(117, 221, 172, 0.9669117647058824) 0%,
+    rgba(118, 194, 238, 0.9669117647058824) 100%
+  );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+}
+
+.gettweet > label {
+  font-size: 18pt;
+  font-weight: 400;
+  position: relative;
+  bottom: 1rem;
+}
+
+#wttweet {
+  resize: none;
+  font-size: 12pt;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+#wttweet:focus-visible {
+  outline: none;
+}
+
+.button {
+  width: 140px;
+  height: 45px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  position: relative;
+  top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #7856ff;
+  box-shadow: 4px 8px 12px rgb(120 86 255 / 40%);
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.lr-res{
+  position: relative;
+  top: 2rem;
+  border-radius: 15px;
+  padding: 9px;
+  background-color: #7856ff;
+  box-shadow: 4px 8px 12px rgb(120 86 255 / 40%);
+  color: #fff;
+}
+
+/* Analyzing Reaction */
+
+.hclust-predict {
+  flex-direction: column;
+  background: linear-gradient(
+    225deg,
+    rgba(176, 255, 216, 1) 0%,
+    rgba(150, 196, 251, 1) 100%
+  );
+}
+
+.gettopic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 3rem;
+  padding-top: 1.7rem;
+  background: linear-gradient(
+    45deg,
+    rgba(117, 221, 172, 0.9669117647058824) 0%,
+    rgba(118, 194, 238, 0.9669117647058824) 100%
+  );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+}
+
+.gettopic label {
+  font-size: 15pt;
+  font-weight: 400;
+  position: relative;
+  pointer-events: none;
+  right: 3.2rem;
+  top: -2.35rem;
+  cursor: text;
+  padding: 0 0.5rem;
+  transition: 0.5s;
+  background: none;
+}
+
+.gettopic input:valid ~ label,
+.gettopic input:focus ~ label {
+  transform: translateX(-4px) translateY(-18px);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0px 10px;
+  background-color: #7856ff;
+  border-radius: 6px;
+}
+
+#topic {
+  background: none;
+  font-size: 14pt;
+  outline: none;
+  font-weight: 400;
+  text-align: center;
+  border: 2px solid #e1e5ee;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+#topic:hover {
+  border-color: #957ded;
+}
+
+#topic:focus {
+  border-color: #7856ff;
+}
+
+#topic:focus-visible {
+  outline: none;
+}
+
+.h_button{
+  position: static;
+}
+
+.res_button {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  top: 2rem;
+  border: 2px solid white;
+  box-sizing: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10pt;
+  padding: 8px 12px;
+  transition: all 0.5s;
+}
+
+.arrow {
+  content: url(../images/arrow-right.svg);
+  margin-bottom: -4px;
+  margin-left: 2px;
+  filter: invert(1);
+  height: 1.2rem;
+  transition: all 0.5s;
+}
+
+.ahead{
+  position: absolute;
+  bottom: 0.6rem;
+  border: 2px solid white;
+  border-radius: 5rem;
+  box-sizing: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10pt;
+  padding: 9px;
+  transition: all 0.5s;
+}
+
+.res_button:hover, .ahead:hover {
+  color: white;
+  border-color: #7856ff;
+  background-color: #7856ff;
+}
+
+.res_button:hover .arrow, .ahead:hover .arrow{
+  transform: rotate(90deg);
+}
+
+#frequent{
+  top: 100vh;
+}
+
+.analyze_freq_img{
+  background-image: url(../images/analyze_frequency_c.png);
+}
+
+#clustering{
+  top: 200vh;
+}
+
+.analyze_dendrogram{
+  background-image: url(../images/analyze_ward_clusters_c.png);
+}
+
+/* Media Queries for Responsive Design */
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .freq_img, .dendrogram{
+    height: 21rem;
+    width: 56rem;
+  }
+}
+
+@media screen and (max-width: 913px) {
+  .freq_img, .dendrogram{
+    height: 18rem;
+    width: 50rem;
+  }
+  .main-ab {
+    font-size: 1.3rem;
+    flex-wrap: wrap;
+  }
+  #abstract{
+    width: 92vw;
+  }
+  #ab-wordcloud-img > img {
+    height: 20rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .home_freq_img{
+    background-image: url(../images/frequency.png);
+  }
+
+  .home_dendrogram{
+    background-image: url(../images/ward_clusters.png);
+  }
+
+  .analyze_freq_img{
+    background-image: url(../images/analyze_frequency.png);
+  }
+
+  .analyze_dendrogram{
+    background-image: url(../images/analyze_ward_clusters.png);
+  }
+
+  .freq_img, .dendrogram{
+    height: 38rem;
+    width: 27rem;
+  }
+
+
+  .main-ab {
+    font-size: 1.1rem;
+  }
+  #ab-wordcloud-img > img {
+    height: 15rem;
+  }
+  .l-wing{
+    width: 16rem;
+  }
+  .r-wing{
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .freq_img, .dendrogram{
+    height: 35rem;
+    width: 25rem;
+  }
+  .main-ab {
+    font-size: 1rem;
+  }
+  #ab-wordcloud-img > img {
+    height: 13rem;
+  }
+  .progress-stacked {
+    width: 90vw;
+  }
+  .gettweet{
+    padding: 2rem 4rem;
+  }
+  .gettweet > label{
+    font-size: 16pt;
+  }
+  #wttweet{
+    font-size: 11pt;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .freq_img, .dendrogram{
+    width: 20rem;
+    height: 28rem;
+  }
+  #ab-wordcloud-img > img {
+    height: 10rem;
+  }
+  .first-letter {
+    font-size: 1.2rem;
+  }
+  .main-ab {
+    font-size: 0.8rem;
+  }
+  .gettweet{
+    padding: 2rem 2rem;
+  }
+  .gettweet > label{
+    font-size: 15pt;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .freq_img, .dendrogram{
+    width: 15rem;
+    height: 22rem;
+  }
+  .main-ab {
+    font-size: 0.7rem;
+  }
+  #ab-wordcloud-img > img {
+    height: 8.5rem;
+  }
+  .gettweet{
+    padding: 2rem 1rem;
+  }
+  .gettopic{
+    padding: 1rem 1rem;
+    padding-top: 1.4rem;
+  }
+  .gettweet > label{
+    font-size: 14pt;
+  }
+  #wttweet{
+    font-size: 9pt;
+  }
+}

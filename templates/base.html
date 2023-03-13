@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Political Issues: A Machine Learning Analysis of Social Media Reaction
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{url_for('static', filename='images/twitter.png')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/index.css')}}"
+    />
+    <style>
+      :root{
+        --left_perct: {{left_perct}}%;
+        --right_perct: {{right_perct}}%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="{{url_for('static', filename='images/twitter.png')}}"
+            alt="Twitter"
+            width="30"
+            height="30"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link fs-5" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="/#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="/#classify">Classify</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="/#trends">Trends</a>
+            </li>
+            <li class="nav-item">
+              <a href="/#cluster" class="nav-link fs-5">Cluster</a>
+            </li>
+            <li class="nav-item">
+              <a href="/predict" class="nav-link fs-5">Predict</a>
+            </li>
+            <li class="nav-item">
+              <a href="/analyze" class="nav-link fs-5">Analyze</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block body %} {% endblock body %}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+  </body>
+</html>

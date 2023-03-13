@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block body %}
+<section class="hclust-predict secbody">
+  <span class="heading fs-2">Analysing Reaction on Topic</span>
+  <form class="gettopic" method="post">
+    <input
+      type="text"
+      name="topic"
+      id="topic"
+      autocomplete="off"
+      placeholder=" "
+      required
+    />
+    <label for="topic">Give a Topic</label>
+    <button class="button h_button" type="submit">Analyze</button>
+  </form>
+  {% if msg == 'success' %}
+  <a href="#frequent" class="res_button">
+    Results Ahead
+    <i class="arrow"></i>
+  </a>
+</section>
+<section class="trends secbody" id="frequent">
+  <span class="heading fs-1">Frequent Words</span>
+  <div class="frequency">
+    <div class="freq_img analyze_freq_img"></div>
+    <p>Finding most frequent words related to topic.</p>
+  </div>
+  <a href="#clustering" class="ahead">
+    <i class="arrow"></i>
+  </a>
+</section>
+<section class="cluster secbody" id="clustering">
+  <span class="heading fs-1">Clustering</span>
+  <div class="h_clust">
+    <div class="dendrogram analyze_dendrogram"></div>
+    <p>Relation between words using hierarchical clustering.</p>
+  </div>
+</section>
+{% elif msg == 'insufficient_data' %}
+<div class="res_button">Insufficient Data</div>
+{% else %} {% endif %} {% endblock body %}
