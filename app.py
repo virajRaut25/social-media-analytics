@@ -14,13 +14,13 @@ def home():
 
 @app.route('/predict', methods=["GET", "POST"])
 def predict():
-    classified = None
+    wing = None
+    sentiment = None
     if request.method == "POST":
         tweet = request.form['wttweet']
-        classified = classify(tweet)
-        print(classified)
+        wing, sentiment = classify(tweet)
 
-    return render_template('predict.html', classified = classified)
+    return render_template('predict.html', wing = wing, sentiment = sentiment)
 
 @app.route('/analyze', methods=["GET", "POST"])
 def analyze():

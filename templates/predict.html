@@ -13,8 +13,11 @@
     ></textarea>
     <button class="button" type="submit">Predict</button>
   </form>
-  {% if classified is not none %}
-  <div class="lr-res">{{classified}}</div>
+  {% if wing is not none %}
+  <div class="lr-res">{{wing}}</div>
+  {% endif %}
+  {% if sentiment is not none %}
+  <div class="lr-res my-2">Sentiment: {{sentiment}}</div>
   {% endif %}
 </section>
 {% endblock body %}

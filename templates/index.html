@@ -3,7 +3,7 @@
   id="intro"
   class="d-flex justify-content-center align-items-center container-fluid"
 >
-<div class="bg-img"></div>
+  <div class="bg-img"></div>
   <span class="title text-center"
     ><span class="cap-case">A</span>nalysing
     <span class="cap-case">S</span>ocial <span class="cap-case">M</span>edia
@@ -16,13 +16,13 @@
 <section id="about" class="secbody">
   <span class="heading fs-1">About</span>
   <div class="main-ab">
-    <aside id="ab-wordcloud-img" class="px-2">
+    <aside id="ab-wordcloud-img" class="px-2" data-aos="fade-right">
       <img
         src="{{url_for('static', filename='images/wordcloud-ab.png')}}"
         alt="wordcloud"
       />
     </aside>
-    <aside id="abstract" class="px-2">
+    <aside id="abstract" class="px-2" data-aos="fade-left">
       <span class="first-letter">C</span>urrently, Twitter is one of the most
       popular social media platforms that allows its users to express their
       thoughts on any topic, usually in the form of short messages limited by
@@ -42,52 +42,54 @@
 </section>
 <section class="classify secbody" id="classify">
   <span class="heading fs-1">Classify</span>
-  <div class="l-wing">
+  <div class="l-wing" data-aos="fade-right">
     <h3>Left Wing</h3>
     Left-wing politics supports social equality often in opposition to social
     hierarchy or any other form of class division.
   </div>
-  <div class="r-wing">
+  <div class="r-wing" data-aos="fade-left">
     <h3>Right Wing</h3>
     Right-Wing politics is centered around beliefs that certain social orders
     and hierarchies are inevitable and natural
   </div>
-  <div class="progress-stacked">
-    <div
-      class="progress"
-      role="progressbar"
-      aria-label="Segment one"
-      aria-valuenow="15"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      style="width: 50%"
-    >
-      <div class="progress-bar progress-bar-l">{{left_perct}}%</div>
-    </div>
-    <div
-      class="progress"
-      role="progressbar"
-      aria-label="Segment two"
-      aria-valuenow="30"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      style="width: 50%"
-    >
-      <div class="progress-bar progress-bar-r">{{right_perct}}%</div>
+  <div data-aos="fade-right">
+    <div class="progress-stacked">
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="Segment one"
+        aria-valuenow="15"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width: 50%"
+      >
+        <div class="progress-bar progress-bar-l">{{left_perct}}%</div>
+      </div>
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="Segment two"
+        aria-valuenow="30"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width: 50%"
+      >
+        <div class="progress-bar progress-bar-r">{{right_perct}}%</div>
+      </div>
     </div>
   </div>
 </section>
 <section class="trends secbody" id="trends">
   <span class="heading fs-1">Trends</span>
   <div class="frequency">
-    <div class="freq_img home_freq_img"></div>
+    <div class="freq_img home_freq_img" data-aos="flip-right"></div>
     <p>Finding most frequent words to get trending topics.</p>
   </div>
 </section>
 <section class="cluster secbody" id="cluster">
   <span class="heading fs-1">Cluster</span>
   <div class="h_clust">
-    <div class="dendrogram home_dendrogram"></div>
+    <div class="dendrogram home_dendrogram" data-aos="flip-left"></div>
     <p>Relation between topics using hierarchical clustering.</p>
   </div>
 </section>

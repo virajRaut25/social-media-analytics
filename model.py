@@ -9,9 +9,11 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 nltk.download('omw-1.4')
 nltk.download('punkt')
+nltk.download('vader_lexicon')
 nltk.download('averaged_perceptron_tagger')
 from nltk.corpus import stopwords
 from nltk.stem import	WordNetLemmatizer
+from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.corpus import wordnet as wn
 from nltk import pos_tag
 from collections import defaultdict, Counter
@@ -45,13 +47,26 @@ def cleanText(text, remove_words):
 
 def classify(tweet):
     tweet = cleanText(tweet, all_stopwords)
+    sia = SentimentIntensityAnalyzer()
+    sen = sia.polarity_scores(tweet)
+    s = max(zip(sen.values(), sen.keys()))[1]
+    if s == "neu":
+      sent = "Neutral"
+    elif s == "pos":
+      sent = "Positive"
+    else:
+      sent = "Negative"
+
     pickled_vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
     tweet = pickled_vectorizer.transform([tweet]).toarray()
     pickled_model = pickle.load(open('classifiers.pkl', 'rb'))
+    wing = ""
     if pickled_model.predict(tweet) == 0:
-        return "Left Wing"
+        wing = "Left Wing"
     else:
-        return "Right Wing"
+        wing = "Right Wing"
+
+    return wing, sent
 
 def isPresent(tweet, keyword):
   flag = False
@@ -73,7 +88,7 @@ def get_tfidf_top_features(documents,n_top=10):
 def doAnalyze(topic):
   rm_words = all_stopwords
   rm_words.extend(["politics", "news"])
-  dataset = pd.read_csv("data/dataset_csv.csv")
+  dataset = pd.read_csv("data/dataset.csv")
   topic = topic.split()
   filtered_tweet = dataset[dataset['tweet'].apply(lambda x: isPresent(x, topic))]['tweet'].values
 

@@ -11,6 +11,7 @@
   height: 100vh;
   width: 100vw;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .heading {
@@ -41,7 +42,7 @@
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  opacity: 0.5;
+  opacity: 0.3;
   max-width: 100%;
   color: white;
   position: absolute;
@@ -54,7 +55,17 @@
   top: 1rem;
   font-size: 40pt;
   font-weight: 600;
-  text-shadow: -4px 4px 3px rgb(0 0 0 / 30%);
+  text-shadow: -12px 12px 0px rgb(255 255 255 / 100%);
+  animation: txt-shade 0.5s ease-in 0.3s forwards;
+}
+
+@keyframes txt-shade {
+  0% {
+    text-shadow: -12px 12px 0px rgb(255 255 255 / 100%);
+  }
+  100% {
+    text-shadow: -4px 4px 0px rgb(255 255 255 / 100%);
+  }
 }
 
 .navbar {

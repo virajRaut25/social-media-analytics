@@ -6,13 +6,21 @@
     <title>
       Political Issues: A Machine Learning Analysis of Social Media Reaction
     </title>
+    <meta
+      name="description"
+      content="Our website uses machine learning to analyze reactions on political issues in social media. Gain insights into public opinion and sentiment on key political topics."
+    />
+    <meta
+      name="keywords"
+      content="political issues, social media, machine learning, public opinion, sentiment analysis, left wing, right wing, clustering wings, reactions on politics"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.0/dist/aos.css" rel="stylesheet" />
     <link
       rel="shortcut icon"
       type="image/png"
@@ -79,12 +87,17 @@
       </div>
     </nav>
     {% block body %} {% endblock body %}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
     <script src="{{url_for('static', filename='js/index.js')}}"></script>
+    <script>
+      AOS.init({
+        duration: 1200,
+      });
+    </script>
   </body>
 </html>
