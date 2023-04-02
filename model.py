@@ -1,6 +1,5 @@
 import re
 import nltk
-import pickle
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -20,6 +19,7 @@ from collections import defaultdict, Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.cluster.hierarchy import ward, dendrogram
 import matplotlib
+import joblib
 
 matplotlib.use('agg')
 
@@ -57,9 +57,9 @@ def classify(tweet):
     else:
       sent = "Negative"
 
-    pickled_vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
+    pickled_vectorizer = joblib.load('vectorizer.pkl')
     tweet = pickled_vectorizer.transform([tweet]).toarray()
-    pickled_model = pickle.load(open('classifiers.pkl', 'rb'))
+    pickled_model = joblib.load('classifier.pkl')
     wing = ""
     if pickled_model.predict(tweet) == 0:
         wing = "Left Wing"
