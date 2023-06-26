@@ -28,6 +28,8 @@ tag_map['J'] = wn.ADJ
 tag_map['V'] = wn.VERB
 tag_map['R'] = wn.ADV
 
+dataset = pd.read_csv("data/dataset.csv")
+
 all_stopwords = stopwords.words('english')
 exception_stopwords = ["not", "no", "nor", "don't", "isn't", "isn"]
 for word in exception_stopwords:
@@ -87,8 +89,7 @@ def get_tfidf_top_features(documents,n_top=10):
 
 def doAnalyze(topic):
   rm_words = all_stopwords
-  rm_words.extend(["politics", "news"])
-  dataset = pd.read_csv("data/dataset.csv")
+  rm_words.extend(["politics", "news"]) 
   topic = topic.split()
   filtered_tweet = dataset[dataset['tweet'].apply(lambda x: isPresent(x, topic))]['tweet'].values
 
